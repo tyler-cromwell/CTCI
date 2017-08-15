@@ -18,7 +18,7 @@ if __name__ == '__main__':
     else:
         print(''.join(['String \"', sys.argv[1], '\" is unique: ']), end='')
 
-    if len(s) > ASCII_LENGTH:
+    if len(sys.argv[1]) > ASCII_LENGTH:
         print('false')
 
     s = ''.join(sorted(sys.argv[1]))
