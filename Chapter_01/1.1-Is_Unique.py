@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Solution to question 1.1 - Is Unique.
+Solution to question 1.1 - Is Unique
 Assumptions:
-  - ASCII strings.
+  - Strings are ASCII
 """
 
 import sys
