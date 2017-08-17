@@ -21,9 +21,9 @@ int main(int argc, char *argv[]) {
     if (argc < 3) {
         fprintf(stderr, "Please enter two strings on the command line\n");
         return EXIT_FAILURE;
-    } else {
-        fprintf(stdout, "String \"%s\" is a permutation of \"%s\": ", argv[2], argv[1]);
     }
+
+    fprintf(stdout, "String \"%s\" is a permutation of \"%s\": ", argv[2], argv[1]);
 
     size_t l1 = strlen(argv[1]);
     size_t l2 = strlen(argv[2]);

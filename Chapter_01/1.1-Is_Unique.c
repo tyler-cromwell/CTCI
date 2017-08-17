@@ -22,9 +22,9 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         fprintf(stderr, "Please enter a string on the command line\n");
         return EXIT_FAILURE;
-    } else {
-        fprintf(stdout, "String \"%s\" is unique: ", argv[1]);
     }
+
+    fprintf(stdout, "String \"%s\" is unique: ", argv[1]);
 
     size_t l = strlen(argv[1]);
 
