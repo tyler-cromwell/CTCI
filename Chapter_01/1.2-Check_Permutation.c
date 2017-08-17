@@ -18,7 +18,7 @@ int compare(const void *a, const void *b) {
 
 
 int main(int argc, char *argv[]) {
-    if (argc < 2) {
+    if (argc < 3) {
         fprintf(stderr, "Please enter two strings on the command line\n");
         return EXIT_FAILURE;
     } else {
