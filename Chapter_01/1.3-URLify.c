@@ -58,10 +58,12 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
+    // Create buffer for URLified
     char *s = calloc(length+1, sizeof(char));
     long l = strlen(argv[1]);
     long c = 0;
 
+    // Replace space with %20 otherwise copy
     for (size_t i = 0; i < l-c; i++) {
         if (argv[1][i] == ' ') {
             s[i+c+0] = '%';

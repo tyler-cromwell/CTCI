@@ -28,16 +28,18 @@ int main(int argc, char *argv[]) {
 
     size_t l = strlen(argv[1]);
 
+    // Not unique if longer than alphabet
     if (l > ASCII_LENGTH) {
         fprintf(stdout, "false\n");
         return EXIT_SUCCESS;
     }
 
+    // Create sorted copy
     char *s = calloc(l+1, sizeof(char));
     strncpy(s, argv[1], l * sizeof(char));
-
     qsort(s, l, sizeof(char), compare);
 
+    // Not unique if current character equals previous
     for (size_t i = 0; i < l; i++) {
         if (s[i] == s[i-1]) {
             fprintf(stdout, "false\n");

@@ -48,10 +48,12 @@ int main(int argc, char *argv[]) {
     long *counts = calloc(ALPHABET_LENGTH, sizeof(long));
 
     for (size_t i = 0; i < l; i++) {
+        // Skip space
         if (argv[1][i] == ' ') {
             l--;
             continue;
         }
+        // If character is lowercase
         else if (argv[1][i] >= 'a' && argv[1][i] <= 'z') {
             counts[argv[1][i] - 'a']++;
         }
@@ -61,6 +63,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    // String is of even length
     if (l % 2 == 0) {
         for (size_t i = 0; i < ALPHABET_LENGTH; i++) {
             if (counts[i] == 1) {
@@ -69,6 +72,7 @@ int main(int argc, char *argv[]) {
             }
         }
     }
+    // String is of odd length
     else {
         for (size_t i = 0; i < ALPHABET_LENGTH; i++) {
             if (counts[i] == 1) {

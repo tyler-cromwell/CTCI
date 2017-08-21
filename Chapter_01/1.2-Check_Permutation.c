@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
 
     fprintf(stdout, "String \"%s\" is a permutation of \"%s\": ", argv[2], argv[1]);
 
+    // Not permutations if lengths differ
     size_t l1 = strlen(argv[1]);
     size_t l2 = strlen(argv[2]);
 
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
         return EXIT_SUCCESS;
     }
 
+    // Create sorted copies
     char *s1 = calloc(l1+1, sizeof(char));
     char *s2 = calloc(l2+1, sizeof(char));
 
@@ -42,6 +44,7 @@ int main(int argc, char *argv[]) {
     qsort(s1, l1, sizeof(char), compare);
     qsort(s2, l2, sizeof(char), compare);
 
+    // Not a permutation if sorted copies don't equal
     if (strncmp(s1, s2, l1)) {
         fprintf(stdout, "false\n");
         return EXIT_SUCCESS;
