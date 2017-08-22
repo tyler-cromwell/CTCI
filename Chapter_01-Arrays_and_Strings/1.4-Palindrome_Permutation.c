@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     // String is of even length
     if (l % 2 == 0) {
         for (size_t i = 0; i < ALPHABET_LENGTH; i++) {
-            if (counts[i] == 1) {
+            if (counts[i] % 2 == 1) {
                 fprintf(stdout, "false\n");
                 goto exit;
             }
