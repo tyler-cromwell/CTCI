@@ -13,6 +13,11 @@
 #define ALPHABET_LENGTH 26
 #define NUMBER_OF_STRINGS 2
 
+struct str {
+    char *data;
+    size_t length;
+};
+
 
 int compare(const void *a, const void *b) {
     const char *aa = a;
@@ -32,11 +37,11 @@ bool isstring(const char *s) {
 }
 
 
-bool checkOneLengthDifference(const char *shorter, const char *longer, const size_t l1, const size_t l2, size_t *const edits) {
+bool checkOneLengthDifference(const struct str *shorter, const struct str *longer, size_t *const edits) {
     size_t i1 = 0, i2 = 0;
 
-    while (i1 < l1 && i2 < l2) {
-        if (shorter[i1] != longer[i2]) {
+    while (i1 < shorter->length && i2 < longer->length) {
+        if (shorter->data[i1] != longer->data[i2]) {
             if (i1 != i2) {
                 (*edits)++;
                 return false;
@@ -60,9 +65,15 @@ int main(int argc, char *argv[]) {
 
     fprintf(stdout, "%s,\t%s -> ", argv[1], argv[2]);
 
-    size_t l1 = strlen(argv[1]);
-    size_t l2 = strlen(argv[2]);
-    size_t edits = abs(l1 - l2);
+    struct str s1 = {
+        .data = argv[1],
+        .length = strlen(argv[1])
+    };
+    struct str s2 = {
+        .data = argv[2],
+        .length = strlen(argv[2])
+    };
+    size_t edits = abs(s1.length - s2.length);
 
     // Already too many edits
     if (edits > 1) {
@@ -71,14 +82,14 @@ int main(int argc, char *argv[]) {
     }
     // One length difference
     else if (edits) {
-        if (l2 > l1) {
-            if (!checkOneLengthDifference(argv[1], argv[2], l1, l2, &edits)) {
+        if (s2.length > s1.length) {
+            if (!checkOneLengthDifference(&s1, &s2, &edits)) {
                 fprintf(stdout, "false\n");
                 return EXIT_SUCCESS;
             }
         }
-        else if (l1 > l2) {
-            if (!checkOneLengthDifference(argv[2], argv[1], l2, l1, &edits)) {
+        else if (s1.length > s2.length) {
+            if (!checkOneLengthDifference(&s1, &s2, &edits)) {
                 fprintf(stdout, "false\n");
                 return EXIT_SUCCESS;
             }
@@ -87,8 +98,8 @@ int main(int argc, char *argv[]) {
     }
     // No length difference
     else {
-        for (size_t i = 0; i < l1; i++) {
-            if (argv[1][i] != argv[2][i]) {
+        for (size_t i = 0; i < s1.length; i++) {
+            if (s1.data[i] != s2.data[i]) {
                 edits++;
             }
 
