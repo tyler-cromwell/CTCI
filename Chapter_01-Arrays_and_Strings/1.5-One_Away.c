@@ -19,13 +19,6 @@ struct str {
 };
 
 
-int compare(const void *a, const void *b) {
-    const char *aa = a;
-    const char *bb = b;
-    return strcmp(aa, bb);
-}
-
-
 bool isstring(const char *s) {
     for (size_t i = 0; i < strlen(s); i++) {
         if (isprint(s[i]) == 0) {
