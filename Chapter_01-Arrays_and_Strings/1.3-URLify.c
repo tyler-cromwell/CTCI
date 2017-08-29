@@ -13,35 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-bool isstring(const char *s) {
-    for (size_t i = 0; i < strlen(s); i++) {
-        if (isprint(s[i]) == 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-
-bool isinteger(const char *s) {
-    size_t l = strlen(s);
-
-    if (s[0] == '-') {
-        s++, l--; // Ignore dash
-    }
-
-    for (size_t _i = 0; _i < l; _i++) {
-        size_t i = (l-1) - _i;  // Start at the end
-
-        if (s[i] < '0' || s[i] > '9') {
-            return false;
-        }
-    }
-
-    return true;
-}
+#include "common.h"
 
 
 int main(int argc, char *argv[]) {
@@ -76,7 +48,6 @@ int main(int argc, char *argv[]) {
     }
 
     fprintf(stdout, "%s\n", s);
-
     free(s);
     return EXIT_SUCCESS;
 }

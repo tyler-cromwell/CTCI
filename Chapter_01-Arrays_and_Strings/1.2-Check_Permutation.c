@@ -9,12 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-int compare(const void *a, const void *b) {
-    const char *aa = a;
-    const char *bb = b;
-    return strcmp(aa, bb);
-}
+#include "common.h"
 
 
 int main(int argc, char *argv[]) {
@@ -41,8 +36,8 @@ int main(int argc, char *argv[]) {
     strncpy(s1, argv[1], l1 * sizeof(char));
     strncpy(s2, argv[2], l2 * sizeof(char));
 
-    qsort(s1, l1, sizeof(char), compare);
-    qsort(s2, l2, sizeof(char), compare);
+    qsort(s1, l1, sizeof(char), qsort_ascending);
+    qsort(s2, l2, sizeof(char), qsort_ascending);
 
     // Not a permutation if sorted copies don't equal
     if (strncmp(s1, s2, l1)) {
@@ -51,9 +46,7 @@ int main(int argc, char *argv[]) {
     }
 
     fprintf(stdout, "true\n");
-
     free(s1);
     free(s2);
-
     return EXIT_SUCCESS;
 }

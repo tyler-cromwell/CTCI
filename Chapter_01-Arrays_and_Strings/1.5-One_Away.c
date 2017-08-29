@@ -10,24 +10,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ALPHABET_LENGTH 26
+#include "common.h"
+
 #define NUMBER_OF_STRINGS 2
 
 struct str {
     char *data;
     size_t length;
 };
-
-
-bool isstring(const char *s) {
-    for (size_t i = 0; i < strlen(s); i++) {
-        if (isprint(s[i]) == 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
 
 
 bool checkOneLengthDifference(const struct str *shorter, const struct str *longer, size_t *const edits) {

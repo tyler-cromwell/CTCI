@@ -14,18 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ALPHABET_LENGTH 26
-
-
-bool isstring(const char *s) {
-    for (size_t i = 0; i < strlen(s); i++) {
-        if (isprint(s[i]) == 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
+#include "common.h"
 
 
 int main(int argc, char *argv[]) {

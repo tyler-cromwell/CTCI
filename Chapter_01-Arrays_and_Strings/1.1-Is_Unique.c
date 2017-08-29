@@ -8,14 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ASCII_LENGTH 128
-
-
-int compare(const void *a, const void *b) {
-    const char *aa = a;
-    const char *bb = b;
-    return strcmp(aa, bb);
-}
+#include "common.h"
 
 
 int main(int argc, char *argv[]) {
@@ -37,7 +30,7 @@ int main(int argc, char *argv[]) {
     // Create sorted copy
     char *s = calloc(l+1, sizeof(char));
     strncpy(s, argv[1], l * sizeof(char));
-    qsort(s, l, sizeof(char), compare);
+    qsort(s, l, sizeof(char), qsort_ascending);
 
     // Not unique if current character equals previous
     for (size_t i = 0; i < l; i++) {
