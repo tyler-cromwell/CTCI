@@ -7,6 +7,9 @@
  *   - Strings are ASCII
  *   - Strings are alphabetical only
  *   - Case insensitive
+ *
+ * TODO:
+ *   - Handle counts > 9
 *************************************************/
 
 #include <stdio.h>
