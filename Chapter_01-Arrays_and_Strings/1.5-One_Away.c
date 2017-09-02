@@ -14,11 +14,6 @@
 
 #define NUMBER_OF_STRINGS 2
 
-struct str {
-    char *data;
-    size_t length;
-};
-
 
 bool checkOneLengthDifference(const struct str *shorter, const struct str *longer, size_t *const edits) {
     size_t i1 = 0, i2 = 0;

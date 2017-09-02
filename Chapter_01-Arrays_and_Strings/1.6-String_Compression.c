@@ -18,11 +18,6 @@
 
 #include "common.h"
 
-struct str {
-    char *data;
-    size_t length;
-};
-
 
 int main(int argc, char *argv[]) {
     if (argc < 2 || !isstring(argv[1])) {
