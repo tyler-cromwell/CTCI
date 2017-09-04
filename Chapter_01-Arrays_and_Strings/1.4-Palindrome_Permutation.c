@@ -1,5 +1,8 @@
 /*************************************************
  * Solution to question 1.4 - Palindrome Permutation
+ * 
+ * Status: COMPLETE
+ *
  * Assumptions:
  *   - Strings are ASCII
  *   - Lowercase only

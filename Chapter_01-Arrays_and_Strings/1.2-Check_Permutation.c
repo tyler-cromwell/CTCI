@@ -1,5 +1,8 @@
 /*************************************************
  * Solution to question 1.2 - Check Permutation
+ *
+ * Status: COMPLETE
+ *
  * Assumptions:
  *   - Strings are ASCII
  *   - Case sensitive

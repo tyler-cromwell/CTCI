@@ -1,5 +1,8 @@
 /*************************************************
  * Solution to question 1.5 - One Away
+ *
+ * Status: COMPLETE
+ *
  * Assumptions:
  *   - Strings are ASCII
 *************************************************/
@@ -15,7 +18,7 @@
 #define NUMBER_OF_STRINGS 2
 
 
-bool checkOneLengthDifference(const struct str *shorter, const struct str *longer, size_t *const edits) {
+static bool checkOneLengthDifference(const struct str *shorter, const struct str *longer, size_t *const edits) {
     size_t i1 = 0, i2 = 0;
 
     while (i1 < shorter->length && i2 < longer->length) {

@@ -1,5 +1,8 @@
 /*************************************************
  * Solution to question 1.3 - URLify
+ * 
+ * Status: COMPLETE
+ *
  * Assumptions:
  *   - Strings are ASCII
  *   - Given string has enough extra space on the end

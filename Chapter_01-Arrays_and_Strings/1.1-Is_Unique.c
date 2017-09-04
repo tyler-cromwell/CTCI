@@ -1,5 +1,8 @@
 /***************************************
- * Solution to question 1.1 - Is unique
+ * Solution to question 1.1 - Is Unique
+ * 
+ * Status: COMPLETE
+ *
  * Assumptions:
  *   - Strings are ASCII
 ***************************************/
