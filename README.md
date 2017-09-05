@@ -1,7 +1,7 @@
 # CTCI
 My solutions to the programming questions in Cracking the Coding Interview (6th Edition) 
 
-### Solutions
+## Solutions
 | Chapter | Completed | Language |                         Reason                       |
 |:-------:|:---------:|:--------:|:----------------------------------------------------:|
 |    1    |    6/9    |     C    | Strings are character arrays by default              |
