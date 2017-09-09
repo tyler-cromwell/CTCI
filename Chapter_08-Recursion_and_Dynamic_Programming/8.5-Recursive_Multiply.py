@@ -4,6 +4,10 @@
 #  Solution to question 8.5 - Recursive Multiply
 # 
 #  Status: COMPLETE
+#
+#  TODO:
+#    - Prevent maxing out recursion depth
+#    - Be able to calculate products greater than 9 * 997
 ##################################################
 
 import getopt
