@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 
 ##################################################
 #  Solution to question 8.5 - Recursive Multiply
