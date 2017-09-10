@@ -6,20 +6,31 @@
 #  Status: COMPLETE
 #
 #  TODO:
-#    - Prevent maxing out recursion depth (997)
+#    - Prevent maxing out recursion depth (996)
 ##################################################
 
 import getopt
 import sys
 
 
-def multiply(a, b):
+# Core multiply function
+def _multiply(a, b):
     if b == 0:
         return 0
     else:
-        return a + multiply(a, b-1)
+        return a + _multiply(a, b-1)
 
 
+# Preliminary multiply function
+def multiply(a, b):
+    if a < b:
+        # Use smaller number for recursion depth
+        return _multiply(b, a)
+    else:
+        return _multiply(a, b)
+
+
+# Main body
 if __name__ == '__main__':
     try:
         short_opts = 'm:n:'
