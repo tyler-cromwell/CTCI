@@ -6,8 +6,7 @@
 #  Status: COMPLETE
 #
 #  TODO:
-#    - Prevent maxing out recursion depth
-#    - Be able to calculate products greater than 9 * 997
+#    - Prevent maxing out recursion depth (997)
 ##################################################
 
 import getopt
