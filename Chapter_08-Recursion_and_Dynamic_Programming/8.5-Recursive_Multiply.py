@@ -4,9 +4,6 @@
 #  Solution to question 8.5 - Recursive Multiply
 # 
 #  Status: COMPLETE
-#
-#  TODO:
-#    - Prevent maxing out recursion depth (996)
 ##################################################
 
 import getopt
@@ -14,20 +11,27 @@ import sys
 
 
 # Core multiply function
-def _multiply(a, b):
-    if b == 0:
-        return 0
-    else:
-        return a + _multiply(a, b-1)
+def _multiply(m, n, a):
+    if n == 1:
+        return m + a    # Sum argument 1 and accumulator
+
+    # Odd
+    elif n % 2 == 1:
+        a += m  # Increase accumulator
+        n -= 1  # Decrement argument 2
+
+    m = m << 1  # Multiply by 2
+    n = n >> 1  # Divide by 2
+    return _multiply(m, n, a)
 
 
 # Preliminary multiply function
-def multiply(a, b):
-    if a < b:
+def multiply(m, n):
+    if m < n:
         # Use smaller number for recursion depth
-        return _multiply(b, a)
+        return _multiply(n, m, 0)
     else:
-        return _multiply(a, b)
+        return _multiply(m, n, 0)
 
 
 # Main body
