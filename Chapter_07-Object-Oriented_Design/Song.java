@@ -10,9 +10,14 @@ public class Song {
 
     public Song(String title, String artist, String album, long length) {
         this.title = title;
-        this.artist = album;
+        this.artist = artist;
         this.album = album;
         this.length = length;
+    }
+
+    @Override
+    public String toString() {
+        return this.title +" by "+ this.artist;
     }
 
     public String getTitle() {
