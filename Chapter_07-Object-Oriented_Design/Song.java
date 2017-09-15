@@ -17,7 +17,14 @@ public class Song {
 
     @Override
     public String toString() {
-        return this.title +" by "+ this.artist;
+        StringBuilder output = new StringBuilder(100);
+        output.append("\"");
+        output.append(this.title);
+        output.append("\" by ");
+        output.append(this.artist);
+        output.append(", ");
+        output.append(this.album);
+        return output.toString();
     }
 
     public String getTitle() {

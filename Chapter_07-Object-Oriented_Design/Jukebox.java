@@ -7,15 +7,35 @@ public class Jukebox {
         this.songs = new ArrayList<Song>();
     }
 
-    public ArrayList<Song> getSongs() {
-        return this.songs;
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder(100);
+
+        for (Song s : this.songs) {
+            output.append(s.toString());
+            output.append("\n");
+        }
+
+        return output.toString();
+    }
+
+    public void addSong(Song song) {
+        this.songs.add(song);
     }
 
     public Song getSong(int index) {
         return this.songs.get(index);
     }
 
-    public void addSong(Song song) {
-        this.songs.add(song);
+    public void removeSong(int index) {
+        this.songs.remove(index);
+    }
+
+    public void skip() {
+        this.songs.remove(0);
+    }
+
+    public ArrayList<Song> getSongs() {
+        return this.songs;
     }
 }
