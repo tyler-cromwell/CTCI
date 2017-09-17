@@ -1,6 +1,10 @@
+/*************************************************
+ * Part of solution to question 7.3 - Jukebox
+*************************************************/
+
 import java.util.ArrayList;
 
-public class Jukebox {
+public class Jukebox implements Runnable {
     private ArrayList<Song> songs;
 
     public Jukebox() {
@@ -17,6 +21,28 @@ public class Jukebox {
         }
 
         return output.toString();
+    }
+
+    @Override
+    public void run() {
+        for (Song s : this.songs) {
+            int time = s.getLength();
+
+            for (int i = 0; i < time; i++) {
+                System.out.printf("\rPlaying, \"%s\" (%d", s.getTitle(), i);
+                System.out.print("/");
+                System.out.print(time);
+                System.out.print(")");
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            System.out.println();
+        }
     }
 
     public void addSong(Song song) {

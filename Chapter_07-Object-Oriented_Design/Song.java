@@ -6,9 +6,9 @@ public class Song {
     private String title;
     private String artist;
     private String album;
-    private long length;    // seconds
+    private int length;     // seconds
 
-    public Song(String title, String artist, String album, long length) {
+    public Song(String title, String artist, String album, int length) {
         this.title = title;
         this.artist = artist;
         this.album = album;
@@ -39,11 +39,11 @@ public class Song {
         return this.album;
     }
 
-    public long getLength() {
+    public int getLength() {
         return this.length;
     }
 
     public String getTime() {
-        return ((long) (this.length / 60)) +":"+ String.format("%02d", this.length % 60);
+        return ((int) (this.length / 60)) +":"+ String.format("%02d", this.length % 60);
     }
 }
