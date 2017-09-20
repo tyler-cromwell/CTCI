@@ -1,5 +1,7 @@
 /*************************************************
  * Part of solution to question 7.3 - Jukebox
+ *
+ * Status: INCOMPLETE
 *************************************************/
 
 public class JukeboxMain {
