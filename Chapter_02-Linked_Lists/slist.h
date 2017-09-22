@@ -14,7 +14,8 @@ namespace ctci {
             int size;
             SNode *head;
         public:
-            SList(SNode *head);
+            SList(int data);
+            ~SList();
             int getSize();
             SNode *getHead();
             void sort();
