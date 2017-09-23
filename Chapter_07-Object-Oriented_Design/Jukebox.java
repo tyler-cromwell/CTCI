@@ -25,23 +25,24 @@ public class Jukebox implements Runnable {
 
     @Override
     public void run() {
-        for (Song s : this.songs) {
-            int time = s.getLength();
+        try {
+            for (Song s : this.songs) {
+                int time = s.getLength();
 
-            for (int i = 0; i < time; i++) {
-                System.out.printf("\rPlaying, \"%s\" (%d", s.getTitle(), i);
-                System.out.print("/");
-                System.out.print(time);
-                System.out.print(")");
-
-                try {
+                for (int i = 0; i < time; i++) {
+                    System.out.printf("\rPlaying, \"%s\" (%d", s.getTitle(), i);
+                    System.out.print("/");
+                    System.out.print(time);
+                    System.out.print(")");
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-            }
 
-            System.out.println();
+                System.out.println();
+            }
+        }
+        catch (InterruptedException e) {
+            System.out.println("I was interrupted!");
+            return;
         }
     }
 

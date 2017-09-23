@@ -12,6 +12,15 @@ public class JukeboxMain {
 
         jukebox.addSong(time);
         jukebox.addSong(paranoid);
-        jukebox.start();
+        Thread music = new Thread(jukebox);
+
+        music.start();
+        System.out.println("Threads!");
+
+        try {
+            Thread.sleep(2000);
+            music.interrupt();
+        } catch (InterruptedException e) {
+        }
     }
 }
