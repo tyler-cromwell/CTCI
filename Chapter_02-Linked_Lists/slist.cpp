@@ -10,6 +10,7 @@
 namespace ctci {
     SList::SList(int data) {
         this->head = new SNode(data, NULL);
+        this->tail = this->head;
         this->size = 1;
     }
 
@@ -32,6 +33,18 @@ namespace ctci {
 
     SNode *SList::getHead() {
         return this->head;
+    }
+
+
+    void SList::add(int data) {
+        this->tail->setNext(new SNode(data, NULL));
+        this->tail = this->tail->getNext();
+        this->size++;
+    }
+
+
+    void SList::remove(int index) {
+        ;
     }
 
 

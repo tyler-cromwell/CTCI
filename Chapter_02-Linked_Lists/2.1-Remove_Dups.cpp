@@ -9,6 +9,9 @@ using namespace ctci;
 
 int main(int argc, char *argv[]) {
     SList slist(1);
+    slist.add(7);
+    slist.add(3);
+    slist.add(7);
 
     SNode *ptr = slist.getHead();
 
