@@ -21,5 +21,16 @@ int main(int argc, char *argv[]) {
     }
     while (ptr != NULL);
 
+    cout << "==============" << endl;
+    slist.remove(2);
+    slist.remove(0);
+
+    ptr = slist.getHead();
+
+    do {
+        cout << ptr->getData() << endl;
+        ptr = ptr->getNext();
+    }
+    while (ptr != NULL);
     return EXIT_SUCCESS;
 }

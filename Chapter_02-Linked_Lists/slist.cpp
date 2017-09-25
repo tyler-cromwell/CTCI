@@ -1,11 +1,11 @@
 /*************************************************
  * Part of solution to question 2.1 - Remove Dups
 *************************************************/
-
+#include <iostream>
 #include <cstdlib>
 
 #include "slist.h"
-
+using namespace std;
 
 namespace ctci {
     SList::SList(int data) {
@@ -43,8 +43,38 @@ namespace ctci {
     }
 
 
-    void SList::remove(int index) {
-        ;
+    bool SList::remove(int index) {
+        if (index < 0 || index >= this->size) {
+            return false;
+        }
+
+        SNode *target = this->head;
+
+        switch (index) {
+            case 0: {
+                this->head = target->getNext();
+                break;
+            }
+            case 1: {
+                target = this->head->getNext();
+                this->head->setNext(target->getNext());
+                break;
+            }
+            default: {
+                SNode *current = this->head;
+
+                for (int i = 0; i < index-1; i++) {
+                    current = current->getNext();
+                }
+
+                target = current->getNext();
+                current->setNext(target->getNext());
+            }
+        }
+
+        delete target;
+        this->size--;
+        return true;
     }
 
 

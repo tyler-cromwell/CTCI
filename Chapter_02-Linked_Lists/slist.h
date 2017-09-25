@@ -20,7 +20,7 @@ namespace ctci {
             int getSize();
             SNode *getHead();
             void add(int data);
-            void remove(int index);
+            bool remove(int index);
             void sort();
     };
 }
