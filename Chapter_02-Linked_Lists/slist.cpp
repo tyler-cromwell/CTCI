@@ -1,11 +1,11 @@
 /*************************************************
  * Part of solution to question 2.1 - Remove Dups
 *************************************************/
-#include <iostream>
+
 #include <cstdlib>
 
 #include "slist.h"
-using namespace std;
+
 
 namespace ctci {
     SList::SList(int data) {
