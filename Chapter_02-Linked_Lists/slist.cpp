@@ -79,6 +79,37 @@ namespace ctci {
 
 
     void SList::sort() {
-        /* Will use Merge Sort */
+        this->_sort(&this->head);
+    }
+
+
+    void SList::_sort(SNode **headptr) {
+        SNode *head = *headptr;
+        SNode *a, *b;
+
+        /* Length 0 or 1 (base case) */
+        if ((head == NULL) || (head->getNext() == NULL)) {
+            return;
+        }
+
+        /* Split head into 'a' and 'b' sublists */
+        this->_split(head, &a, &b);
+
+        /* Recursively sort the sublists */
+        this->sort(&a);
+        this->sort(&b);
+
+        /* answer = merge the two sorted lists together */
+        *headptr = this->_merge(a, b);
+    }
+
+
+    void SList::_split(SNode *source, SNode *front, SNode *back) {
+
+    }
+
+
+    SNode *SList::_merge(SNode *a, SNode *b) {
+
     }
 }
