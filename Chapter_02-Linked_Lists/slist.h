@@ -17,7 +17,7 @@ namespace ctci {
 
             // Should only be called in sort()
             void _sort(SNode **headptr);
-            void _split(SNode *source, SNode *front, SNode *back);
+            void _split(SNode *source, SNode **front, SNode **back);
             SNode *_merge(SNode *a, SNode *b);
         public:
             SList(int data);

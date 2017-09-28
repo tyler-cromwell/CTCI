@@ -87,29 +87,70 @@ namespace ctci {
         SNode *head = *headptr;
         SNode *a, *b;
 
-        /* Length 0 or 1 (base case) */
+        // Length 0 or 1 (base case)
         if ((head == NULL) || (head->getNext() == NULL)) {
             return;
         }
 
-        /* Split head into 'a' and 'b' sublists */
+        // Split head into 'a' and 'b' sublists
         this->_split(head, &a, &b);
 
-        /* Recursively sort the sublists */
-        this->sort(&a);
-        this->sort(&b);
+        // Recursively sort the sublists
+        this->_sort(&a);
+        this->_sort(&b);
 
-        /* answer = merge the two sorted lists together */
+        // answer = merge the two sorted lists together
         *headptr = this->_merge(a, b);
     }
 
 
-    void SList::_split(SNode *source, SNode *front, SNode *back) {
+    void SList::_split(SNode *source, SNode **front, SNode **back) {
+        SNode *fast, *slow;
 
+        // Length 0 or 1
+        if (source == NULL || source->getNext() == NULL) {
+            *front = source;
+            *back = NULL;
+        }
+        else {
+            slow = source;
+            fast = source->getNext();
+
+            while (fast != NULL) {
+                fast = fast->getNext();
+
+                if (fast != NULL) {
+                    slow = slow->getNext();
+                    fast = fast->getNext();
+                }
+            }
+
+            // 'slow' is before the midpoint in the list, so split at that point
+            *front = source;
+            *back = slow->getNext();
+            slow->setNext(NULL);
+        }
     }
 
 
     SNode *SList::_merge(SNode *a, SNode *b) {
+        SNode *result = NULL;
 
+        /* Base cases */
+        if (a == NULL) {
+            return b;
+        } else if (b == NULL) {
+            return a;
+        }
+
+        if (a->getData() <= b->getData()) {
+            result = a;
+            result->setNext(this->_merge(a->getNext(), b));
+        } else {
+            result = b;
+            result->setNext(this->_merge(a, b->getNext()));
+        }
+
+        return result;
     }
 }

@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
     while (ptr != NULL);
 
     cout << "==============" << endl;
-    slist.remove(2);
-    slist.remove(0);
+    slist.remove(3);
+    slist.sort();
 
     ptr = slist.getHead();
 
