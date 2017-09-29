@@ -2,35 +2,33 @@
 
 #include "slist.h"
 
-
 using namespace std;
 using namespace ctci;
 
 
-int main(int argc, char *argv[]) {
-    SList slist(1);
-    slist.add(7);
-    slist.add(3);
-    slist.add(7);
-
+void print_slist(ostream &file, SList &slist) {
     SNode *ptr = slist.getHead();
 
     do {
-        cout << ptr->getData() << endl;
+        file << ptr->getData() << endl;
         ptr = ptr->getNext();
     }
     while (ptr != NULL);
+}
 
-    cout << "==============" << endl;
-    slist.remove(3);
+
+int main(int argc, char *argv[]) {
+    // Initialize a Singly Linked List
+    SList slist(7);
+    slist.add(4);
+    slist.add(2);
+    slist.add(4);
+    slist.add(5);
+    slist.add(5);
+
+    // Sort nodes
     slist.sort();
+    print_slist(cout, slist);
 
-    ptr = slist.getHead();
-
-    do {
-        cout << ptr->getData() << endl;
-        ptr = ptr->getNext();
-    }
-    while (ptr != NULL);
     return EXIT_SUCCESS;
 }
