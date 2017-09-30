@@ -78,11 +78,32 @@ namespace ctci {
     }
 
 
+    void SList::condense() {
+        SNode *current = this->head;
+        SNode *next = this->head->getNext();
+
+        for (int i = 0; i < this->size-1; i++) {
+            if (next->getData() == current->getData()) {
+                // Relink and delete next
+                current->setNext(next->getNext());
+                this->size--;
+                delete next;
+            } else {
+                // Move on
+                current = next;
+            }
+
+            next = current->getNext();
+        }
+    }
+
+
     void SList::sort() {
         this->_sort(&this->head);
     }
 
 
+    // Do not call outside of SList::sort
     void SList::_sort(SNode **headptr) {
         SNode *head = *headptr;
         SNode *a, *b;
@@ -104,6 +125,7 @@ namespace ctci {
     }
 
 
+    // Do not call outside of SList::sort
     void SList::_split(SNode *source, SNode **front, SNode **back) {
         SNode *fast, *slow;
 
@@ -133,6 +155,7 @@ namespace ctci {
     }
 
 
+    // Do not call outside of SList::sort
     SNode *SList::_merge(SNode *a, SNode *b) {
         SNode *result = NULL;
 

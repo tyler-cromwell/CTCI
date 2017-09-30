@@ -28,6 +28,7 @@ namespace ctci {
             
             void add(int data);
             bool remove(int index);
+            void condense();
             void sort();
     };
 }
