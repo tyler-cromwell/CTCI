@@ -82,7 +82,7 @@ namespace ctci {
         SNode *current = this->head;
         SNode *next = this->head->getNext();
 
-        for (int i = 0; i < this->size-1; i++) {
+        while (next != NULL) {
             if (next->getData() == current->getData()) {
                 // Relink and delete next
                 current->setNext(next->getNext());

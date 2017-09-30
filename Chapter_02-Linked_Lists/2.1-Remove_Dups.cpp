@@ -31,14 +31,9 @@ int main(int argc, char *argv[]) {
     slist.add(4);
     slist.add(1);
     slist.add(5);
-    slist.add(5);
-
-    // Sort
-    slist.sort();
-    print_slist(cout, slist);
-    cout << "--------" << endl;
 
     // Remove duplicates
+    slist.sort();
     slist.condense();
     print_slist(cout, slist);
 
