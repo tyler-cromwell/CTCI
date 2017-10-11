@@ -36,13 +36,19 @@ class Stack:
     def __len__(self):
         return self.__size
 
-    def push(self, node):
+    def push(self, data):
+        node = DNode(data)          # Create node for new data
         node.setPrev(self.__top)    # Link to original top
         self.__top.setNext(node)    # Link from original top
         self.__top = node           # Set new top
         self.__size += 1            # Increase stack size
 
     def pop(self):
-        self.__top = self.__top.getPrev()   # Set top to node before top
-        self.__top.setNext(None)            # Unlink original top
+        data = self.__top.getData()         # Get original top data
         self.__size -= 1                    # Decrease stack size
+        self.__top = self.__top.getPrev()   # Set top to node before top
+
+        if self.__size > 0:
+            self.__top.setNext(None)        # Unlink original top
+
+        return data
