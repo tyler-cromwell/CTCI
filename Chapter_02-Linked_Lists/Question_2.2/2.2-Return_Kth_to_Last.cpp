@@ -1,7 +1,10 @@
 /*************************************************
  * Solution to question 2.2 - Return Kth to Last
  *
- * Status: INCOMPLETE
+ * This solution assumes that the list size
+ * is known.
+ *
+ * Status: COMPLETE
 *************************************************/
 
 #include <iostream>
