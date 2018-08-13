@@ -14,7 +14,7 @@ namespace ctci {
     SList::~SList() {
         SNode *current = this->head;
 
-        for (int i = 0; i < this->size; i++) {
+        for (size_t i = 0; i < this->size; i++) {
             SNode *next = current->getNext();
             delete current;
             current = next;
@@ -22,7 +22,7 @@ namespace ctci {
     }
 
 
-    int SList::getSize() {
+    size_t SList::getSize() {
         return this->size;
     }
 
@@ -39,8 +39,8 @@ namespace ctci {
     }
 
 
-    bool SList::remove(int index) {
-        if (index < 0 || index >= this->size) {
+    bool SList::remove(size_t index) {
+        if (index >= this->size) {
             return false;
         }
 
@@ -59,7 +59,7 @@ namespace ctci {
             default: {
                 SNode *current = this->head;
 
-                for (int i = 0; i < index-1; i++) {
+                for (size_t i = 0; i < index-1; i++) {
                     current = current->getNext();
                 }
 

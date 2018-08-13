@@ -7,18 +7,18 @@
 namespace ctci {
     class SList {
         protected:
-            int size;
+            size_t size;
             SNode *head;
             SNode *tail;
         public:
             SList(int data);
             ~SList();
             
-            int getSize();
+            size_t getSize();
             SNode *getHead();
             
             void add(int data);
-            bool remove(int index);
+            bool remove(size_t index);
     };
 }
 
