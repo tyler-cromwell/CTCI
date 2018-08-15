@@ -5,6 +5,13 @@
 
 
 namespace ctci {
+    SList::SList() {
+        this->head = NULL;
+        this->tail = this->head;
+        this->size = 0;
+    }
+
+
     SList::SList(int data) {
         this->head = new SNode(data, NULL);
         this->tail = this->head;
@@ -34,30 +41,14 @@ namespace ctci {
     }
 
 
-    size_t SList::getSize() {
-        return this->size;
-    }
-
-
-    SNode *SList::getHead() {
-        return this->head;
-    }
-
-
-    SNode *SList::getNode(size_t index) {
-        SNode *node = this->head;
-
-        for (size_t i = 0; i < index; i++) {
-            node = node->getNext();
-        }
-
-        return node;
-    }
-
-
     void SList::add(int data) {
-        this->tail->setNext(new SNode(data, NULL));
-        this->tail = this->tail->getNext();
+        if (this->head == NULL) {
+            this->head = new SNode(data, NULL);
+            this->tail = this->head;
+        } else {
+            this->tail->setNext(new SNode(data, NULL));
+            this->tail = this->tail->getNext();
+        }
         this->size++;
     }
 
@@ -94,5 +85,26 @@ namespace ctci {
         delete target;
         this->size--;
         return true;
+    }
+
+
+    size_t SList::getSize() {
+        return this->size;
+    }
+
+
+    SNode *SList::getHead() {
+        return this->head;
+    }
+
+
+    SNode *SList::getNode(size_t index) {
+        SNode *node = this->head;
+
+        for (size_t i = 0; i < index; i++) {
+            node = node->getNext();
+        }
+
+        return node;
     }
 }
