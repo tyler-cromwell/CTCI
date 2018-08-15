@@ -9,8 +9,8 @@ namespace ctci {
         public:
             SNode(int data, SNode *next);
             int getData();
-            void setData(int data);
             SNode *getNext();
+            void setData(int data);
             void setNext(SNode *next);
     };
 }
