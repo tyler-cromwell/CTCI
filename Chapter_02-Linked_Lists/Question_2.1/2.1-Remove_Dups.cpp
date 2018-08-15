@@ -134,17 +134,6 @@ SNode *SListSub::_merge(SNode *a, SNode *b) {
 }
 
 
-void print_slist(ostream &file, SListSub &slist) {
-    SNode *ptr = slist.getHead();
-
-    do {
-        file << ptr->getData() << endl;
-        ptr = ptr->getNext();
-    }
-    while (ptr != NULL);
-}
-
-
 int main(void) {
     // Initialize a Singly Linked List
     SListSub slist(7);
@@ -157,7 +146,6 @@ int main(void) {
     // Remove duplicates
     slist.sort();
     slist.condense();
-    print_slist(cout, slist);
-
+    slist.print(cout);
     return EXIT_SUCCESS;
 }

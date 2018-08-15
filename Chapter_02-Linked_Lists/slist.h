@@ -1,7 +1,11 @@
 #ifndef SLIST_H
 #define SLIST_H
 
+#include <iostream>
+
 #include "snode.h"
+
+using namespace std;
 
 
 namespace ctci {
@@ -13,7 +17,8 @@ namespace ctci {
         public:
             SList(int data);
             ~SList();
-            
+
+            void print(ostream &file);
             size_t getSize();
             SNode *getHead();
             SNode *getNode(size_t index);

@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <iostream>
 
 #include "slist.h"
 
@@ -19,6 +20,17 @@ namespace ctci {
             delete current;
             current = next;
         }
+    }
+
+
+    void SList::print(ostream &file) {
+        SNode *node = this->head;
+
+        do {
+            file << node->getData() << endl;
+            node = node->getNext();
+        }
+        while (node != NULL);
     }
 
 

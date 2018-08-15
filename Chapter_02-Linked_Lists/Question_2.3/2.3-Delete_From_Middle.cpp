@@ -44,17 +44,6 @@ void SListSub::delete_from_middle(SNode *node) {
 }
 
 
-void print_slist(ostream &file, SListSub &slist) {
-    SNode *ptr = slist.getHead();
-
-    do {
-        file << ptr->getData() << endl;
-        ptr = ptr->getNext();
-    }
-    while (ptr != NULL);
-}
-
-
 int main(void) {
     SListSub slist(7);
     slist.add(4);   // Target
@@ -63,11 +52,11 @@ int main(void) {
     slist.add(5);
     size_t index = 1;
 
-    print_slist(cout, slist);
+    slist.print(cout);
     cout << "==========" << endl;
     cout << "Deleting node at index " << index << endl;
     slist.delete_from_middle(slist.getNode(index));
     cout << "==========" << endl;
-    print_slist(cout, slist);
+    slist.print(cout);
     return EXIT_SUCCESS;
 }
