@@ -1,7 +1,3 @@
-/*************************************************
- * Part of solution to question 2.1 - Remove Dups
-*************************************************/
-
 #include "snode.h"
 
 
@@ -14,6 +10,11 @@ namespace ctci {
 
     int SNode::getData() {
         return this->data;
+    }
+
+
+    void SNode::setData(int data) {
+        this->data = data;
     }
 
 

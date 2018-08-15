@@ -1,7 +1,3 @@
-/*************************************************
- * Part of solution to question 2.1 - Remove Dups
-*************************************************/
-
 #ifndef SNODE_H
 #define SNODE_H
 
@@ -13,6 +9,7 @@ namespace ctci {
         public:
             SNode(int data, SNode *next);
             int getData();
+            void setData(int data);
             SNode *getNext();
             void setNext(SNode *next);
     };
