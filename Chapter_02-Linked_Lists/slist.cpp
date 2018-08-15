@@ -32,6 +32,17 @@ namespace ctci {
     }
 
 
+    SNode *SList::getNode(size_t index) {
+        SNode *node = this->head;
+
+        for (size_t i = 0; i < index; i++) {
+            node = node->getNext();
+        }
+
+        return node;
+    }
+
+
     void SList::add(int data) {
         this->tail->setNext(new SNode(data, NULL));
         this->tail = this->tail->getNext();

@@ -16,7 +16,7 @@ namespace ctci {
             
             size_t getSize();
             SNode *getHead();
-            
+            SNode *getNode(size_t index);
             void add(int data);
             bool remove(size_t index);
     };
