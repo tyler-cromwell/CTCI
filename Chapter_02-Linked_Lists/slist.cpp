@@ -41,6 +41,41 @@ namespace ctci {
     }
 
 
+    SList SList::clone() {
+        SList cloned = SList();
+        SNode *node = this->head;
+
+        for (size_t i = 0; i < this->size; i++) {
+            cloned.add(node->getData());
+            node = node->getNext();
+        }
+
+        return cloned;
+    }
+
+
+    void SList::reverse() {
+        this->tail = _reverse(this->head);
+        this->tail->setNext(NULL);
+    }
+
+
+    SNode * SList::_reverse(SNode *node) {
+        SNode *next = node->getNext();
+        SNode *ret = NULL;
+
+        if (next) {
+            ret = _reverse(next);
+        } else {
+            this->head = node;
+            return this->head;
+        }
+
+        ret->setNext(node);
+        return ret->getNext();
+    }
+
+
     void SList::add(int data) {
         if (this->head == NULL) {
             this->head = new SNode(data, NULL);
