@@ -16,6 +16,7 @@ namespace ctci {
         this->head = new SNode(data, NULL);
         this->tail = this->head;
         this->size = 1;
+        this->head->incref();
     }
 
 
@@ -24,7 +25,12 @@ namespace ctci {
 
         for (size_t i = 0; i < this->size; i++) {
             SNode *next = current->getNext();
-            delete current;
+
+            current->decref();
+            if (!current->getref()) {
+                delete current;
+            }
+
             current = next;
         }
     }
@@ -77,14 +83,21 @@ namespace ctci {
 
 
     void SList::add(int data) {
+        SNode *node = new SNode(data, NULL);
+        this->add(node);
+    }
+
+
+    void SList::add(SNode *node) {
         if (this->head == NULL) {
-            this->head = new SNode(data, NULL);
+            this->head = node;
             this->tail = this->head;
         } else {
-            this->tail->setNext(new SNode(data, NULL));
+            this->tail->setNext(node);
             this->tail = this->tail->getNext();
         }
         this->size++;
+        node->incref();
     }
 
 
@@ -117,7 +130,11 @@ namespace ctci {
             }
         }
 
-        delete target;
+        target->decref();
+        if (!target->getref()) {
+            delete target;
+        }
+
         this->size--;
         return true;
     }
