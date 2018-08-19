@@ -96,8 +96,14 @@ namespace ctci {
             this->tail->setNext(node);
             this->tail = this->tail->getNext();
         }
-        this->size++;
-        node->incref();
+
+        SNode *temp = node;
+
+        while (temp != NULL) {
+            this->size++;
+            temp->incref();
+            temp = temp->getNext();
+        }
     }
 
 
