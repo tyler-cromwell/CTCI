@@ -68,12 +68,14 @@ public class Stack<T> {
 
 
     public T pop() {
-        if (this.size == 0) {
+        if (this.isEmpty()) {
             return null;
         }
         else if (this.size == 1) {
+            T value = this.top.getValue();
+            this.top = new Node<T>();
             this.size--;
-            return this.top.getValue();
+            return value;
         }
         else {
             T value = this.top.getValue();
@@ -100,5 +102,10 @@ public class Stack<T> {
 
     public long getSize() {
         return this.size;
+    }
+
+
+    public boolean isEmpty() {
+        return this.size == 0;
     }
 }
