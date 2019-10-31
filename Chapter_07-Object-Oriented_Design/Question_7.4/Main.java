@@ -7,14 +7,17 @@ public class Main {
 
         ts.park(new Truck());
         ts.getOccupant().horn();
+        System.out.println(ts.getOccupant().getLicense());
         System.out.println(ts.vacate());
 
         ms.park(new Motorcycle());
         ms.getOccupant().horn();
+        System.out.println(ms.getOccupant().getLicense());
         System.out.println(ms.getOccupant());
 
         cs.park(new Car());
         cs.getOccupant().horn();
+        System.out.println(cs.getOccupant().getLicense());
         System.out.println(cs.getOccupant());
     }
 }
